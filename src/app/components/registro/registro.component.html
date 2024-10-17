@@ -1,0 +1,13 @@
+<div class="registro-container">
+    <div class="user-icon">
+        <i class="fa-regular fa-user"></i>
+    </div>
+    <form (ngSubmit)="onSubmit()" class="registro-form">
+        <input type="text" placeholder="Nombre" class="form-input">
+        <input type="email" placeholder="Correo" class="form-input">
+        <input type="tel" placeholder="Numero Telefonico" class="form-input">
+        <input type="password" placeholder="Contraseña" class="form-input">
+        <button type="submit" class="btn register-btn" (click)="onSubmit()">Registrar</button>
+        <button type="button" class="btn back-btn" (click)="onVolver()">Volver</button>
+    </form>
+</div>

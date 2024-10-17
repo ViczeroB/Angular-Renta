@@ -1,0 +1,93 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333;
+    background-image: url('https://kaboompics.com/cache/b/9/e/d/9/b9ed9b9cb34b5dd77ef49f622e0386f00f751dce.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.login-container {
+    background-color: rgba(20, 30, 48, 0.8);
+    padding: 11rem 2rem 3rem; /* Ajustado el padding inferior */
+    border-radius: 50px;
+    text-align: center;
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Alinea el contenido hacia abajo */
+    min-height: 600px; /* Altura mínima para asegurar espacio suficiente */
+}
+.user-icon {
+    background-color: #3498db;
+    color: white;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.btn {
+    display: block;
+    width: 100%;
+    padding: 20px; /* Aumentado el padding */
+    margin: 20px 0; /* Ajustado el margen */
+    border: none;
+    border-radius: 25px; /* Aumentado el border-radius */
+    background-color: #bdc3c7;
+    color: #2c3e50;
+    font-size: 24px; /* Aumentado el tamaño de la fuente */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn:hover {
+    background-color: #95a5a6;
+    transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+}
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 8rem 1.5rem 2rem;
+        border-radius: 30px;
+        width: 90%;
+        min-height: 500px;
+    }
+    .user-icon {
+        width: 160px;
+        height: 160px;
+        font-size: 70px;
+        top: -80px;
+    }
+    .btn {
+        padding: 15px;
+        font-size: 18px;
+    }
+}
+@media (max-width: 480px) {
+    .login-container {
+        padding: 6rem 1rem 1.5rem;
+        border-radius: 20px;
+        width: 95%;
+        min-height: 400px;
+    }
+    .user-icon {
+        width: 120px;
+        height: 120px;
+        font-size: 50px;
+        top: -60px;
+    }
+    .btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+}

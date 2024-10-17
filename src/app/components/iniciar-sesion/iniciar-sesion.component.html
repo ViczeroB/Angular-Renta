@@ -1,0 +1,11 @@
+<div class="iniciar-sesion-container">
+    <div class="user-icon">
+      <i class="fa-regular fa-user"></i>
+    </div>
+    <form (ngSubmit)="onSubmit()" class="iniciar-sesion-form">
+      <input type="email" placeholder="Correo" class="form-input">
+      <input type="password" placeholder="Contraseña" class="form-input">
+      <button type="submit" class="btn login-btn" routerLink="/renta-princ">Iniciar Sesión</button>
+      <button type="button" class="btn back-btn" routerLink="/principal">Volver</button>
+    </form>
+  </div>

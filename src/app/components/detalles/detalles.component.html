@@ -1,0 +1,42 @@
+<div class="detalles-container">
+    <header>
+      <h1>INMOBILIARIA BULTOS</h1>
+      <nav>
+        <a href="http://localhost:4200/renta-princ" class="nav-item"><i class="fa-regular fa-user"></i></a>
+        <a href="http://localhost:4200/renta-princ" class="nav-item"><i class="fa-solid fa-house"></i></a>
+        <a href="http://localhost:4200/detalles" class="nav-item"><i class="fa-solid fa-list"></i></a>
+        <a href="http://localhost:4200/principal" class="nav-item"><i class="fa-solid fa-right-from-bracket"></i></a>
+      </nav>
+    </header>
+  
+    <div class="contenido-detalles">
+      <div class="info-propiedad">
+        <h2>Ubicación</h2>
+        <p>{{ propiedad.ubicacion }}</p>
+        
+        <h2>Descripción</h2>
+        <p>{{ propiedad.descripcion }}</p>
+        
+        <h2>Precio</h2>
+        <p>$ {{ propiedad.precio | number }}</p>
+        
+        <button class="btn-rentar" (click)="toggleModal()">Información</button>
+    </div>
+    
+    <div class="imagen-propiedad">
+      <img [src]="propiedad.imagen" alt="Imagen de la propiedad">
+    </div>
+  </div>
+
+  <!-- Modal del vendedor -->
+  <div class="modal" *ngIf="mostrarModal">
+    <div class="modal-content">
+      <span class="close" (click)="toggleModal()">&times;</span>
+      <h2>Información del Vendedor</h2>
+      <p><strong>Nombre:</strong> {{ vendedor.nombre }}</p>
+      <p><strong>Teléfono:</strong> {{ vendedor.telefono }}</p>
+      <p><strong>Email:</strong> {{ vendedor.email }}</p>
+      <p><strong>Experiencia:</strong> {{ vendedor.experiencia }}</p>
+    </div>
+  </div>
+</div>

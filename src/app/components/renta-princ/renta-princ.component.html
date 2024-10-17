@@ -1,0 +1,25 @@
+<div class="renta-container">
+    <header>
+      <h1>INMOBILIARIA BULTOS</h1>
+      <nav>
+        <a href="http://localhost:4200/admin" class="nav-item"><i class="fa-regular fa-user"></i></a>
+        <a href="http://localhost:4200/renta-princ" class="nav-item"><i class="fa-solid fa-house"></i></a>
+        <a href="http://localhost:4200/detalles" class="nav-item"><i class="fa-solid fa-list"></i></a>
+        <a href="http://localhost:4200/principal" class="nav-item"><i class="fa-solid fa-right-from-bracket"></i></a>
+      </nav>
+    </header>
+    
+    <div class="search-container">
+      <i class="fa-solid fa-search search-icon"></i>
+      <input type="text" placeholder="Buscar" class="search-input">
+    </div>
+    
+    <div class="propiedades-container">
+      <div class="propiedad-card" *ngFor="let propiedad of propiedades">
+        <i class="fa-solid fa-house house-icon"></i>
+        <h3>{{ propiedad.nombre }}</h3>
+        <p>{{ propiedad.habitaciones }} habitaciones, {{ propiedad.banos }} baños ${{ propiedad.precio }}</p>
+        <button type="button" class="detalles-btn" routerLink="/detalles">Detalles</button>
+      </div>
+    </div>
+  </div>

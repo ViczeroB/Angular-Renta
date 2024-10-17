@@ -1,0 +1,47 @@
+<div class="admin-container">
+    <header>
+      <h1>RENTA - Panel de Administración</h1>
+      <nav>
+        <a href="http://localhost:4200/renta-princ" class="nav-item"><i class="fa-regular fa-user"></i></a>
+        <a href="http://localhost:4200/renta-princ" class="nav-item"><i class="fa-solid fa-house"></i></a>
+        <a href="http://localhost:4200/detalles" class="nav-item"><i class="fa-solid fa-list"></i></a>
+        <a href="http://localhost:4200/principal" class="nav-item"><i class="fa-solid fa-right-from-bracket"></i></a>
+      </nav>
+    </header>
+  
+    <div class="panel-container">
+      <div class="panel publicar-casa">
+        <h2>Publicar Nueva Casa</h2>
+        <form (ngSubmit)="publicarCasa()">
+          <input type="text" [(ngModel)]="nuevaCasa.ubicacion" name="ubicacion" placeholder="Ubicación" required>
+          <textarea [(ngModel)]="nuevaCasa.descripcion" name="descripcion" placeholder="Descripción" required></textarea>
+          <input type="number" [(ngModel)]="nuevaCasa.precio" name="precio" placeholder="Precio" required>
+          <input type="text" [(ngModel)]="nuevaCasa.imagen" name="imagen" placeholder="URL de la imagen" required>
+          
+          <h3>Información del Vendedor</h3>
+          <input type="text" [(ngModel)]="nuevaCasa.vendedor.nombre" name="vendedorNombre" placeholder="Nombre del vendedor" required>
+          <input type="tel" [(ngModel)]="nuevaCasa.vendedor.telefono" name="vendedorTelefono" placeholder="Teléfono del vendedor" required>
+          <input type="email" [(ngModel)]="nuevaCasa.vendedor.email" name="vendedorEmail" placeholder="Email del vendedor" required>
+          <input type="text" [(ngModel)]="nuevaCasa.vendedor.experiencia" name="vendedorExperiencia" placeholder="Experiencia del vendedor" required>
+          
+          <button type="submit" class="btn-publicar">Publicar Casa</button>
+        </form>
+      </div>
+  
+      <div class="panel datos-usuario">
+        <h2>Datos de Usuario</h2>
+        <form (ngSubmit)="actualizarUsuario()">
+          <input type="text" [(ngModel)]="usuario.nombre" name="nombre" placeholder="Nombre" required>
+          <input type="email" [(ngModel)]="usuario.email" name="email" placeholder="Email" required>
+          <input type="tel" [(ngModel)]="usuario.telefono" name="telefono" placeholder="Teléfono" required>
+          
+          <h3>Cambiar Contraseña</h3>
+          <input type="password" [(ngModel)]="usuario.contrasenaActual" name="contrasenaActual" placeholder="Contraseña actual" required>
+          <input type="password" [(ngModel)]="usuario.nuevaContrasena" name="nuevaContrasena" placeholder="Nueva contraseña" required>
+          <input type="password" [(ngModel)]="usuario.confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar nueva contraseña" required>
+          
+          <button type="submit" class="btn-actualizar">Actualizar Datos</button>
+        </form>
+      </div>
+    </div>
+  </div>
