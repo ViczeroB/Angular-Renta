@@ -92,6 +92,7 @@
   
   .btn-rentar:hover {
     background-color: #2c5282;
+    transform: scale(1.05);
   }
 
   .modal {

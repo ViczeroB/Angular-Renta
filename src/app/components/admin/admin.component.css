@@ -24,7 +24,7 @@
   h1 {
     color: white;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   
   nav {
@@ -32,9 +32,15 @@
     gap: 1rem;
   }
   
+  .nav-item:hover {
+    transform: scale(1.20);
+  }
+  
   .nav-item {
     color: white;
     text-decoration: none;
+    font-size: 23px;
+    margin-right: 40px;
   }
   
   .panel-container {
@@ -87,26 +93,28 @@
   button {
     padding: 0.75rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
   }
   
   .btn-publicar {
-    background-color: #2ecc71;
+    background-color: #1e3a5f;
   }
   
   .btn-publicar:hover {
     background-color: #27ae60;
+    transform: scale(1.03);
   }
   
   .btn-actualizar {
-    background-color: #3498db;
+    background-color: #1e3a5f;
   }
   
   .btn-actualizar:hover {
-    background-color: #2980b9;
+    background-color: #27ae60;
+    transform: scale(1.03);
   }
   
   @media (max-width: 1024px) {
