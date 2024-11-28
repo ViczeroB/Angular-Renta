@@ -24,7 +24,13 @@
   h1 {
     color: white;
     margin: 0;
-    font-size: 2rem;
+    font-size: 3rem;
+    background: url(https://www.shutterstock.com/image-photo/vintage-interior-room-white-wood-260nw-1679155936.jpg);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
   
   nav {
