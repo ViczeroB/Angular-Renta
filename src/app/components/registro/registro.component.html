@@ -2,12 +2,12 @@
     <div class="user-icon">
         <i class="fa-regular fa-user"></i>
     </div>
-    <form (ngSubmit)="onSubmit()" class="registro-form">
-        <input type="text" placeholder="Nombre" class="form-input">
-        <input type="email" placeholder="Correo" class="form-input">
-        <input type="tel" placeholder="Numero Telefonico" class="form-input">
-        <input type="password" placeholder="Contraseña" class="form-input">
-        <button type="submit" class="btn register-btn" (click)="onSubmit()">Registrar</button>
+    <form [formGroup]="formRegister" (ngSubmit)="register()" class="registro-form">
+        <input type="text" placeholder="Nombre" class="form-input" formControlName="nombre">
+        <input type="email" placeholder="Correo" class="form-input" formControlName="email">
+        <input type="tel" placeholder="Numero Telefonico" class="form-input" formControlName="telefono">
+        <input type="password" placeholder="Contraseña" class="form-input" formControlName="password">
+        <button type="submit" class="btn register-btn" (click)="register()">Registrar</button>
         <button type="button" class="btn back-btn" (click)="onVolver()">Volver</button>
     </form>
 </div>
