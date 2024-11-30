@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 const APIURL ='https://rentacasaswebapi.onrender.com/api/v1/casa';
 
 @Injectable({
@@ -27,5 +28,12 @@ export class ApiCasaService {
   deleteCasa(id:number){
     return this._http.delete(`${APIURL}/${id}`);
   }
+  //nuevo
+  getCasasByUserId(userId: string): Observable<any[]> {
+    return this._http.get<any[]>(`${APIURL}/user/${userId}`);
+1
+  }
+
+
 }
 

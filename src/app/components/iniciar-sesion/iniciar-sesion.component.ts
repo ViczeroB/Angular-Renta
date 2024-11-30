@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
+import { UserServiceService } from '../../services/user-service.service';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -16,6 +17,8 @@ export class IniciarSesionComponent {
   private fb = inject(FormBuilder);
   private authS = inject(AuthService);
   private _router = inject(Router);
+  private userService =inject(UserServiceService);//nuevo
+
   constructor() {
     this.formLogin = this.fb.group({
       email: [''],
@@ -44,6 +47,7 @@ login() {
   this.authS.loginUser(this.formLogin.value).subscribe({
     next: (res) => {
       if (res && res.usuario) { // Cambiar según el formato de respuesta
+        this.userService.setUser(res.usuario);//nuevoNuevo
         localStorage.setItem('user', JSON.stringify(res.usuario));
         this._router.navigate(['/renta-princ']);
       } else {

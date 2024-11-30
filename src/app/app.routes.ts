@@ -5,6 +5,7 @@ import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesi
 import { RentaPrincComponent } from './components/renta-princ/renta-princ.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { CasaUsuarioComponent } from './components/casa-usuario/casa-usuario.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/principal', pathMatch: 'full' },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'renta-princ', component: RentaPrincComponent},
     { path: 'detalles', component: DetallesComponent},
     { path: 'admin', component: AdminComponent },
+    {path: 'casasUsuario',component:CasaUsuarioComponent},
     {path: 'detalles/:id', component: DetallesComponent}
 ];

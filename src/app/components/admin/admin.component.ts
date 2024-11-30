@@ -5,6 +5,7 @@ import { Form, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validat
 import Swal from 'sweetalert2'
 import { ApiCasaService } from '../../services/api-casa.service';
 import { AuthService } from '../../services/auth.service';
+import { UserServiceService } from '../../services/user-service.service';
 
 @Component({
   selector: 'app-admin',
@@ -19,9 +20,10 @@ export class AdminComponent {
   private route = inject(ActivatedRoute);
   private casaService = inject(ApiCasaService);
   private UsuarioService = inject(AuthService);
-
+  private userService = inject(UserServiceService); // Inyecta el servicio
+  
   form!:FormGroup;  
-
+  formUser!:FormGroup;
   casas: any  =[] =[];
   constructor() {
     this.form = this.fb.group({
@@ -31,16 +33,32 @@ export class AdminComponent {
       precio:['',Validators.required],
       imagen:['',Validators.required],
     });
+
   }
 
   ngOnInit(): void {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      const user = JSON.parse(storedUser);
+    //sirve
+    // const storedUser = localStorage.getItem('user');
+    // if (storedUser) {
+    //   const user = JSON.parse(storedUser);
+    //   this.form.patchValue({
+    //     usuarioId: user.id, 
+    //   });
+    // } else {
+    //   console.error('Usuario no encontrado o no ha iniciado sesión.');
+    // }
+    const user = this.userService.getUser();
+    if(user){
+      console.log('Usuario', user);
       this.form.patchValue({
-        usuarioId: user.id, 
+        usuarioId: user.id,
       });
-    } else {
+      this.formUser = this.fb.group({
+        nombre: [user.nombre, Validators.required],
+        email: [user.email, Validators.required],
+        telefono:[user.telefono, Validators.required],
+      }); // Inicializa el formulario
+    }else{
       console.error('Usuario no encontrado o no ha iniciado sesión.');
     }
   }
@@ -77,6 +95,46 @@ export class AdminComponent {
   }
   
 
+  alertaactualizarUsuario(){
+
+  }
+
+  actualizarUsuario(){
+    if (this.formUser.invalid) {
+      Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Por favor completa todos los campos correctamente.',
+      });
+      return;
+  }
+
+  const usuarioActualizado = this.formUser.value;
+  const userId = this.userService.getUser().id; // Obtén el ID del usuario almacenado.
+
+  this.UsuarioService.updateUser(userId, usuarioActualizado).subscribe({
+      next: () => {
+          Swal.fire({
+              icon: 'success',
+              title: 'Datos actualizados',
+              text: 'Los datos del usuario han sido actualizados exitosamente.',
+          });
+      },
+      error: (error) => {
+          Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Hubo un problema al actualizar los datos. Inténtalo nuevamente.',
+          });
+          console.error('Error al actualizar usuario:', error);
+      },
+  });
+  }
+
+  goToCasasdeUsuario(){
+    console.log('Ir a casas de usuario');
+    this.router.navigate(['/casasUsuario']);
+  }
   }
 
 

@@ -65,5 +65,10 @@ export class AuthService {
     localStorage.removeItem('user');
   }
   
+  updateUser(userId: string, data: any) {
+    return this._http.put(`${APIURL}/${userId}`, data); // Cambia la URL según tu configuración.
+  
+}
+
 }
 

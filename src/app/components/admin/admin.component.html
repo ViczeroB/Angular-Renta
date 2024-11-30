@@ -19,32 +19,35 @@
           <input type="number" formControlName="precio" placeholder="Precio" required>
           <input type="text" formControlName="imagen" placeholder="URL de la imagen" required>
           <button type="submit" class="btn-publicar">Agregar</button>
+          <!-- <h3>Información del Vendedor</h3>
           
-          <h3>Información del Vendedor</h3>
+          <input type="text" name="vendedorNombre" placeholder="Nombre del vendedor" required>
+          <input type="tel" name="vendedorTelefono" placeholder="Teléfono del vendedor" required>
+          <input type="email" name="vendedorEmail" placeholder="Email del vendedor" required>
+          <input type="text"  name="vendedorExperiencia" placeholder="Experiencia del vendedor" required>
           
-          <!-- <input type="text" [(ngModel)]="nuevaCasa.vendedor.nombre" name="vendedorNombre" placeholder="Nombre del vendedor" required>
-          <input type="tel" [(ngModel)]="nuevaCasa.vendedor.telefono" name="vendedorTelefono" placeholder="Teléfono del vendedor" required>
-          <input type="email" [(ngModel)]="nuevaCasa.vendedor.email" name="vendedorEmail" placeholder="Email del vendedor" required>
-          <input type="text" [(ngModel)]="nuevaCasa.vendedor.experiencia" name="vendedorExperiencia" placeholder="Experiencia del vendedor" required>
-          
-          <button type="submit" (click)="alertapublicarCasa()" class="btn-publicar">Publicar Casa</button> -->
+          <button type="submit" class="btn-publicar">Publicar Casa</button>  -->
         </form>
       </div>
   
       <div class="panel datos-usuario">
         <h2>Datos de Usuario</h2>
-        <!-- <form (ngSubmit)="actualizarUsuario()">
-          <input type="text" [(ngModel)]="usuario.nombre" name="nombre" placeholder="Nombre" required>
-          <input type="email" [(ngModel)]="usuario.email" name="email" placeholder="Email" required>
-          <input type="tel" [(ngModel)]="usuario.telefono" name="telefono" placeholder="Teléfono" required>
+         <form  [formGroup]="formUser"  (ngSubmit)="actualizarUsuario()">
           
-          <h3>Cambiar Contraseña</h3>
-          <input type="password" [(ngModel)]="usuario.contrasenaActual" name="contrasenaActual" placeholder="Contraseña actual" required>
-          <input type="password" [(ngModel)]="usuario.nuevaContrasena" name="nuevaContrasena" placeholder="Nueva contraseña" required>
-          <input type="password" [(ngModel)]="usuario.confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar nueva contraseña" required>
+          <input type="text"  formControlName="nombre" placeholder="Nombre" required>
+          <input type="email" formControlName="email" placeholder="Email" required>
+          <input type="tel" formControlName="telefono" placeholder="Teléfono" required>
           
-          <button type="submit" (click)="alertaactualizarUsuario()" class="btn-actualizar">Actualizar Datos</button>
-        </form> -->
+          <!-- <h3>Cambiar Contraseña</h3>
+          <input type="password" name="contrasenaActual" placeholder="Contraseña actual" required>
+          <input type="password"  name="nuevaContrasena" placeholder="Nueva contraseña" required>
+          <input type="password"  name="confirmarContrasena" placeholder="Confirmar nueva contraseña" required> -->
+          <div class="btn-group">
+            <button type="submit" (click)="alertaactualizarUsuario()" class="btn-actualizar">Actualizar Datos</button>
+            <button type="submit" (click)="goToCasasdeUsuario()" class="btn-actualizar">Mis casas</button>
+          </div>
+          
+        </form>
       </div>
     </div>
   </div>
