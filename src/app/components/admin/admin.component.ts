@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Form, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { ApiCasaService } from '../../services/api-casa.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -17,7 +18,7 @@ export class AdminComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private casaService = inject(ApiCasaService);
-  private UsuarioService = inject(ApiCasaService);
+  private UsuarioService = inject(AuthService);
 
   form!:FormGroup;  
 
@@ -33,8 +34,18 @@ export class AdminComponent {
   }
 
   ngOnInit(): void {
-
-    
+    // const user = this.UsuarioService.getUserData(); // Recupera la información del usuario
+    // if (user && user.id) {
+    //   this.form.patchValue({ usuarioId: user.id }); // Establece el `usuarioId` en el formulario
+    // } else {
+    //   console.warn('Usuario no encontrado o datos inválidos.');
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: 'Error',
+    //     text: 'No se pudo cargar el usuario. Por favor, inicie sesión nuevamente.',
+    //   });
+    //   this.router.navigate(['/iniciar-sesion']); // Redirige al inicio de sesión
+    // }
   }
   save() {
     if (this.form.invalid) {
@@ -55,7 +66,7 @@ export class AdminComponent {
           title: 'Casa registrada',
           text: 'La casa se registró exitosamente.',
         });
-        this.form.reset(); // Limpia el formulario después de guardar
+        this.form.reset();
       },
       error: (error) => {
         Swal.fire({

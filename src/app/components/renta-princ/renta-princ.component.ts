@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ApiCasaService } from '../../services/api-casa.service';
 
 
@@ -23,7 +23,7 @@ export class RentaPrincComponent {
   private casaService = inject(ApiCasaService);
   casas : any[] = [];
   constructor() { }
-
+  private _router =inject(Router)
   ngOnInit(): void {
     this.loadCasas();
     
@@ -31,8 +31,11 @@ export class RentaPrincComponent {
   loadCasas(){
     this.casaService.getCasas().subscribe((data:any)=>{
       this.casas = data;
-
+      console.log(data);
   });
 
+}
+goToDetalles(id:any){
+  this._router.navigate([`/detalles/${id}`]);
 }
 }

@@ -13,5 +13,6 @@ export const routes: Routes = [
     { path: 'iniciar-sesion', component: IniciarSesionComponent },
     { path: 'renta-princ', component: RentaPrincComponent},
     { path: 'detalles', component: DetallesComponent},
-    { path: 'admin', component: AdminComponent }
+    { path: 'admin', component: AdminComponent },
+    {path: 'detalles/:id', component: DetallesComponent}
 ];

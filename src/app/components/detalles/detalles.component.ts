@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ApiCasaService } from '../../services/api-casa.service';
 
 @Component({
   selector: 'app-detalles',
@@ -10,6 +11,23 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./detalles.component.css']
 })
 export class DetallesComponent {
+
+  private casaService = inject(ApiCasaService);
+  casa: any = {};
+  constructor() { }
+  
+  ngOnInit(): void {
+    const id = window.location.href.split('/').pop();
+    this.loadCasa(id);
+  }
+
+  loadCasa(id: any) {
+    this.casaService.getCasa(id).subscribe((data: any) => {
+      this.casa = data;
+      console.log(data);
+    });
+  }
+
   propiedad = {
     ubicacion: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
