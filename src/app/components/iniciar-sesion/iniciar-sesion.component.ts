@@ -22,35 +22,39 @@ export class IniciarSesionComponent {
       password: ['']  
     });
   }
+//Parte Buena
+//    login(){
+//    console.log(this.formLogin.value);
+//      this.authS.loginUser(this.formLogin.value).subscribe({
+//        next: (res) => {
+//          this._router.navigate(['/renta-princ']);
+//      },
+//      error: (err) => {
+//        console.log(err);
+//        }
+//      }
+//    )
+//  }
 
-   login(){
-   console.log(this.formLogin.value);
-     this.authS.loginUser(this.formLogin.value).subscribe({
-       next: (res) => {
-         this._router.navigate(['/renta-princ']);
-     },
-     error: (err) => {
-       console.log(err);
-       }
-     }
-   )
- }
-// login() {
-//   console.log(this.formLogin.value);
-//   this.authS.loginUser(this.formLogin.value).subscribe({
-//     next: (res) => {
-//       if (res && res.user) { // Asegúrate de que `res.user` existe y contiene los datos esperados
-//         localStorage.setItem('user', JSON.stringify(res.user)); // Guarda los datos del usuario
-//         this._router.navigate(['/renta-princ']);
-//       } else {
-//         console.warn('Datos de usuario faltantes en la respuesta del backend');
-//       }
-//     },
-//     error: (err) => {
-//       console.error('Error al iniciar sesión:', err);
-//     }
-//   });
-// }
+
+//Parte NUEVA
+
+login() {
+  console.log(this.formLogin.value);
+  this.authS.loginUser(this.formLogin.value).subscribe({
+    next: (res) => {
+      if (res && res.usuario) { // Cambiar según el formato de respuesta
+        localStorage.setItem('user', JSON.stringify(res.usuario));
+        this._router.navigate(['/renta-princ']);
+      } else {
+        console.warn('Datos de usuario faltantes en la respuesta del backend');
+      }
+    },
+    error: (err) => {
+      console.error('Error al iniciar sesión:', err);
+    }
+  });
+}
 
 
 }

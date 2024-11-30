@@ -34,18 +34,15 @@ export class AdminComponent {
   }
 
   ngOnInit(): void {
-    // const user = this.UsuarioService.getUserData(); // Recupera la información del usuario
-    // if (user && user.id) {
-    //   this.form.patchValue({ usuarioId: user.id }); // Establece el `usuarioId` en el formulario
-    // } else {
-    //   console.warn('Usuario no encontrado o datos inválidos.');
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Error',
-    //     text: 'No se pudo cargar el usuario. Por favor, inicie sesión nuevamente.',
-    //   });
-    //   this.router.navigate(['/iniciar-sesion']); // Redirige al inicio de sesión
-    // }
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      this.form.patchValue({
+        usuarioId: user.id, 
+      });
+    } else {
+      console.error('Usuario no encontrado o no ha iniciado sesión.');
+    }
   }
   save() {
     if (this.form.invalid) {

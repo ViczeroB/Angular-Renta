@@ -13,14 +13,15 @@
       <div class="panel publicar-casa">
         <h2>Publicar Nueva Casa</h2>
         <form [formGroup]="form" (ngSubmit)="save()">
-          <input type="number"formControlName="usuarioId" placeholder="Usuarioid" id="usuarioId" required>
+          <!-- <input type="number"formControlName="usuarioId" placeholder="Usuarioid" id="usuarioId" required> -->
           <input type="text" formControlName="direccion" placeholder="Dirección"  id="direccion" required>
           <textarea formControlName="descripcion" placeholder="Descripción" required></textarea>
           <input type="number" formControlName="precio" placeholder="Precio" required>
           <input type="text" formControlName="imagen" placeholder="URL de la imagen" required>
-          <button type="submit">Agregar</button>
+          <button type="submit" class="btn-publicar">Agregar</button>
           
           <h3>Información del Vendedor</h3>
+          
           <!-- <input type="text" [(ngModel)]="nuevaCasa.vendedor.nombre" name="vendedorNombre" placeholder="Nombre del vendedor" required>
           <input type="tel" [(ngModel)]="nuevaCasa.vendedor.telefono" name="vendedorTelefono" placeholder="Teléfono del vendedor" required>
           <input type="email" [(ngModel)]="nuevaCasa.vendedor.email" name="vendedorEmail" placeholder="Email del vendedor" required>
