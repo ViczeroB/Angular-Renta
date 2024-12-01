@@ -48,13 +48,24 @@
     </header>
   
     <div class="propiedades-container">
-      <div class="propiedad-card" *ngFor="let cas of casas; trackBy: trackById">
-        <i class="fa-solid fa-house house-icon"></i>
-        <h3>Dirección:<br>{{ cas.direccion }}</h3>
-        <p>Descripción:<br>{{ cas.descripcion }}</p>
-        <p>Precio:<br>{{ cas.precio }}</p>
-        <button (click)="goToDetalles(cas.id)" class="detalles-btn">Detalles</button>
+      
+        @for (cas of casas; track cas.id) {
+          <div class="propiedad-card" >
+
+            <i class="fa-solid fa-house house-icon"></i>
+            <h3>Dirección:<br>{{cas.direccion }}</h3>
+            <p>Descripción:<br>{{ cas.descripcion }}</p>
+            <p>Precio:<br>{{ cas.precio }}</p>
+            <div class="btn-group">
+              <button (click)="goToEditarCasa(cas.id)" class="detalles-btn">Modificar</button>
+              <button (click)="deleteCasa(cas.id)" class="detalles-btn">Eliminar</button>
+            </div>
+            
+            
+          </div>
+        }
+        
       </div>
     </div>
-  </div>
+  
   

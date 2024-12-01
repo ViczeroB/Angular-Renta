@@ -1,0 +1,48 @@
+<div class="admin-container">
+    <header>
+      <h1>INMOBILIARIA BULTOS</h1>
+      <nav>
+        <a href="http://localhost:4200/admin" class="nav-item"><i class="fa-regular fa-user"></i></a>
+        <a href="http://localhost:4200/renta-princ" class="nav-item"><i class="fa-solid fa-house"></i></a>
+        <a href="http://localhost:4200/detalles" class="nav-item"><i class="fa-solid fa-list"></i></a>
+        <a href="http://localhost:4200/principal" class="nav-item"><i class="fa-solid fa-right-from-bracket"></i></a>
+      </nav>
+    </header>
+  
+    <div class="panel-container">
+      <div class="panel publicar-casa">
+        <h2>Modificar Casa</h2>
+        <form [formGroup]="casaForm" (ngSubmit)="guardarCambios()">
+          <!-- <input type="number"formControlName="usuarioId" placeholder="Usuarioid" id="usuarioId" required> -->
+          <input type="text" formControlName="direccion" placeholder="Dirección"  id="direccion" required>
+          <textarea formControlName="descripcion" placeholder="Descripción" required></textarea>
+          <input type="number" formControlName="precio" placeholder="Precio" required>
+          <input type="text" formControlName="imagen" placeholder="URL de la imagen" required>
+          <div class="btn-group">
+
+              <button type="submit" class="btn-publicar">Modificar</button>
+    
+              <button type="submit" (click)="Cancelar()" class="btn-publicar">Cancelar</button>
+        </div>
+            </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div class="form-container">
+    <form [formGroup]="casaForm" (ngSubmit)="guardarCambios()">
+      <label for="direccion">Dirección:</label>
+      <input id="direccion" formControlName="direccion" type="text" />
+  
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" formControlName="descripcion"></textarea>
+  
+      <label for="precio">Precio:</label>
+      <input id="precio" formControlName="precio" type="number" />
+  
+      <button type="submit" [disabled]="casaForm.invalid">Guardar</button>
+    </form>
+  </div>
+  
+   -->

@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 
@@ -13,6 +14,7 @@ export class AuthService {
   private APIURL2 ='https://rentacasaswebapi.onrender.com/api/v1/usuarioL';
   private _http = inject(HttpClient);
   private token :string | null = null;
+  private router = inject(Router);
 
 
   constructor() { }
@@ -63,6 +65,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('user');
+    this.router.navigate(['/principal']);
   }
   
   updateUser(userId: string, data: any) {

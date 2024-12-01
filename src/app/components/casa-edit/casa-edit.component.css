@@ -1,0 +1,149 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: #333;
+    background-image: url('https://kaboompics.com/cache/b/9/e/d/9/b9ed9b9cb34b5dd77ef49f622e0386f00f751dce.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .admin-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: #1e3a5f;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    color: white;
+    margin: 0;
+    font-size: 3rem;
+    background: url(https://www.shutterstock.com/image-photo/vintage-interior-room-white-wood-260nw-1679155936.jpg);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+  
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-item:hover {
+    transform: scale(1.20);
+  }
+  
+  .nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
+    margin-right: 40px;
+  }
+  
+  .panel-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .panel {
+    background-color: rgba(200, 200, 200, 0.8);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1rem;
+    width: calc(50% - 2rem);
+    max-width: 500px;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+
+  h3 {
+    color: #1e3a5f;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  h2 {
+    color: #1e3a5f;
+    margin-top: 0;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, textarea {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-publicar {
+    /* background-color: #1e3a5f;
+    margin: 10px; */
+    width: 300px;
+    background-color: #1e3a5f;
+    margin: 10px;
+    
+  }
+  
+  .btn-publicar:hover {
+    background-color: #27ae60;
+    transform: scale(1.03);
+  
+  }
+  
+  .btn-actualizar {
+    width: 400px;
+    background-color: #1e3a5f;
+    margin: 10px;
+  }
+  
+  .btn-actualizar:hover {
+    background-color: #27ae60;
+    transform: scale(1.03);
+  }
+  
+  @media (max-width: 1024px) {
+    .panel-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .panel {
+      width: 90%;
+      max-width: none;
+    }
+  }
+  @media (max-width: 768px) {
+    .panel {
+      width: 100%;
+    }
+  }

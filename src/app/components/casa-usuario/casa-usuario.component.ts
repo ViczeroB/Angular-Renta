@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiCasaService } from '../../services/api-casa.service';
 import { UserServiceService } from '../../services/user-service.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-casa-usuario',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './casa-usuario.component.html',
   styleUrl: './casa-usuario.component.css'
 })
@@ -33,7 +34,7 @@ export class CasaUsuarioComponent {
   loadCasas(){
     const user = this.userService.getUser(); // Obtener usuario logueado
     if (user && user.id) {
-      this.casaService.getCasasByUserId(user.id).subscribe({
+      this.casaService.getCasasByUserEmail(user.email).subscribe({
         next: (data: any[]) => {
           this.casas = data;
           console.log('Casas del usuario:', data);
@@ -46,7 +47,19 @@ export class CasaUsuarioComponent {
       console.error('Usuario no logueado');
     }
 }
-goToDetalles(id:any){
-  this._router.navigate([`/detalles/${id}`]);
+goToEditarCasa(id:any){
+  this._router.navigate([`/casa-editar/${id}`]);
 }
+deleteCasa(id:any){
+  
+   this.casaService.deleteCasa(id).subscribe({
+     next: (data) => {
+       console.log('Casa eliminada:', data);
+       this.loadCasas();
+     },
+     error: (err) => {
+       console.error('Error al eliminar casa:', err);
+     },
+   });
+  }
 }

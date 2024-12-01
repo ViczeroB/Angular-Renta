@@ -6,6 +6,7 @@ import { RentaPrincComponent } from './components/renta-princ/renta-princ.compon
 import { DetallesComponent } from './components/detalles/detalles.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CasaUsuarioComponent } from './components/casa-usuario/casa-usuario.component';
+import { CasaEditComponent } from './components/casa-edit/casa-edit.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/principal', pathMatch: 'full' },
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'detalles', component: DetallesComponent},
     { path: 'admin', component: AdminComponent },
     {path: 'casasUsuario',component:CasaUsuarioComponent},
+    {path:  'casa-editar/:id', component:CasaEditComponent},
     {path: 'detalles/:id', component: DetallesComponent}
 ];
