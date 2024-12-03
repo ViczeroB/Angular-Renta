@@ -28,7 +28,7 @@ export class ApiCasaService {
   deleteCasa(id:number){
     return this._http.delete(`${APIURL}/${id}`);
   }
-  //nuevo
+  
   getCasasByUserEmail(email: string): Observable<any[]> {
     return this._http.get<any[]>(`${APIURL}/user/${email}`);
 }

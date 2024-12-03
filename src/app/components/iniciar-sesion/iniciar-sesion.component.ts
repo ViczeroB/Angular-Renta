@@ -25,29 +25,12 @@ export class IniciarSesionComponent {
       password: ['']  
     });
   }
-//Parte Buena
-//    login(){
-//    console.log(this.formLogin.value);
-//      this.authS.loginUser(this.formLogin.value).subscribe({
-//        next: (res) => {
-//          this._router.navigate(['/renta-princ']);
-//      },
-//      error: (err) => {
-//        console.log(err);
-//        }
-//      }
-//    )
-//  }
-
-
-//Parte NUEVA
-
 login() {
   console.log(this.formLogin.value);
   this.authS.loginUser(this.formLogin.value).subscribe({
     next: (res) => {
-      if (res && res.usuario) { // Cambiar según el formato de respuesta
-        this.userService.setUser(res.usuario);//nuevoNuevo
+      if (res && res.usuario) { 
+        this.userService.setUser(res.usuario);
         localStorage.setItem('user', JSON.stringify(res.usuario));
         this._router.navigate(['/renta-princ']);
       } else {

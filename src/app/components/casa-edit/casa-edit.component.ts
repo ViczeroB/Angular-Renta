@@ -1,10 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import Swal from 'sweetalert2';
 import { ApiCasaService } from '../../services/api-casa.service';
-import { AuthService } from '../../services/auth.service';
-import { UserServiceService } from '../../services/user-service.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -54,7 +51,7 @@ export class CasaEditComponent {
       this.casaService.updateCasa(casaEditada).subscribe({
         next: () => {
           console.log('Casa actualizada');
-          this.router.navigate(['/casasUsuario']); // Redirigir a la lista
+          this.router.navigate(['/casasUsuario']); 
         },
         error: (err) => {
           console.error('Error al actualizar la casa:', err);

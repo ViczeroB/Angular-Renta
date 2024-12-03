@@ -15,8 +15,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class RentaPrincComponent {
   casas : any[] = [];
-  filteredCasas: any[] = []; // Propiedades filtradas
-  searchQuery: string = ''; // Texto de búsqueda
+  filteredCasas: any[] = []; 
+  searchQuery: string = ''; 
 
   private casaService = inject(ApiCasaService);
   constructor() { }

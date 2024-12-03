@@ -4,17 +4,9 @@
       <nav>
         <a href="http://localhost:4200/admin" class="nav-item"><i class="fa-regular fa-user"></i></a>
         <a href="http://localhost:4200/renta-princ" class="nav-item"><i class="fa-solid fa-house"></i></a>
-        <!-- <a href="http://localhost:4200/detalles" class="nav-item"><i class="fa-solid fa-list"></i></a> -->
-        <!-- <a href="http://localhost:4200/detalles" class="nav-item"><i class="fa-solid fa-list"></i></a> -->
         <a href="http://localhost:4200/principal" class="nav-item"><i class="fa-solid fa-right-from-bracket"></i></a>
       </nav>
     </header>
-<!--     
-    <div class="search-container">
-      <i class="fa-solid fa-search search-icon"></i>
-      <input type="text" placeholder="Buscar" class="search-input">
-    </div> -->
-  
     <div class="search-container">
       <i class="fa-solid fa-search search-icon"></i>
       <input type="text" placeholder="Buscar" class="search-input" [(ngModel)]="searchQuery" (input)="filtrarPropiedades()">

@@ -12,12 +12,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 
 export class PrincipalComponent {
-  // cards: any[] = [];
-  // constructor(private router: Router) {}
 
-  // navigateToRegistro() {
-  //   this.router.navigate(['/registro']);
-  // }
 }
 
 

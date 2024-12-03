@@ -26,25 +26,6 @@ export class AuthService {
     return this._http.post(`${APIURL3}/login`,body);
   }
 
-  // setToken(token: string): void {
-  //   this.token = token;
-  //   localStorage.setItem('token', token); // También puedes usar localStorage para persistencia
-  // }
-
-  // getToken(): string | null {
-  //   if (!this.token) {
-  //     this.token = localStorage.getItem('token');
-  //   }
-  //   return this.token;
-  // }
-  // getProtectedData(): Observable<any> {
-  //   const headers = new HttpHeaders({
-  //     Authorization: `Bearer ${this.getToken()}`, // Incluye el token en el encabezado
-  //   });
-
-  //   return this._http.get(`${this.APIURL2}/protected`, { headers });
-  // }
-
   setUserData(user: any): void {
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
@@ -56,10 +37,10 @@ export class AuthService {
   getUserData(): any {
   const user = localStorage.getItem('user');
   try {
-    return user ? JSON.parse(user) : null; // Verifica si el contenido es válido JSON
+    return user ? JSON.parse(user) : null; 
   } catch (error) {
     console.error('Error al analizar el JSON de usuario:', error);
-    return null; // Si falla, retorna null
+    return null; 
   }
   }
 
@@ -69,7 +50,7 @@ export class AuthService {
   }
   
   updateUser(userId: string, data: any) {
-    return this._http.put(`${APIURL}/${userId}`, data); // Cambia la URL según tu configuración.
+    return this._http.put(`${APIURL}/${userId}`, data); 
   
 }
 

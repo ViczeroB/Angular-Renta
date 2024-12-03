@@ -20,8 +20,7 @@ export class AdminComponent {
   private route = inject(ActivatedRoute);
   private casaService = inject(ApiCasaService);
   private UsuarioService = inject(AuthService);
-  private userService = inject(UserServiceService); // Inyecta el servicio
-  
+  private userService = inject(UserServiceService); 
   form!:FormGroup;  
   formUser!:FormGroup;
   casas: any  =[] =[];
@@ -37,16 +36,6 @@ export class AdminComponent {
   }
 
   ngOnInit(): void {
-    //sirve
-    // const storedUser = localStorage.getItem('user');
-    // if (storedUser) {
-    //   const user = JSON.parse(storedUser);
-    //   this.form.patchValue({
-    //     usuarioId: user.id, 
-    //   });
-    // } else {
-    //   console.error('Usuario no encontrado o no ha iniciado sesión.');
-    // }
     const user = this.userService.getUser();
     if(user){
       console.log('Usuario', user);
@@ -57,7 +46,7 @@ export class AdminComponent {
         nombre: [user.nombre, Validators.required],
         email: [user.email, Validators.required],
         telefono:[user.telefono, Validators.required],
-      }); // Inicializa el formulario
+      }); 
     }else{
       console.error('Usuario no encontrado o no ha iniciado sesión.');
     }
@@ -110,7 +99,7 @@ export class AdminComponent {
   }
 
   const usuarioActualizado = this.formUser.value;
-  const userId = this.userService.getUser().id; // Obtén el ID del usuario almacenado.
+  const userId = this.userService.getUser().id; 
 
   this.UsuarioService.updateUser(userId, usuarioActualizado).subscribe({
       next: () => {

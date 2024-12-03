@@ -7,7 +7,6 @@ export class UserServiceService {
 
   private user: any = null;
   constructor() { 
-        // Si hay datos en localStorage, los cargamos al inicializar el servicio
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
           this.user = JSON.parse(storedUser);

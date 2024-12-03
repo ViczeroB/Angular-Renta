@@ -12,14 +12,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './casa-usuario.component.css'
 })
 export class CasaUsuarioComponent {
-  // propiedades = [
-  //   { nombre: 'Casa en el Centro', habitaciones: 3, banos: 2, precio: 1 },
-  //   { nombre: 'Casa en el Cerro', habitaciones: 3, banos: 2, precio: 1 },
-  //   { nombre: 'Casa en Oaxaca', habitaciones: 3, banos: 2, precio: 1 },
-  //   { nombre: 'Casa en el Centro', habitaciones: 3, banos: 2, precio: 1 },
-  //   { nombre: 'Casa en el Cerro', habitaciones: 3, banos: 2, precio: 1 },
-  // ];
-
   private casaService = inject(ApiCasaService);
   private userService = inject(UserServiceService);
   private _router =inject(Router);
@@ -32,7 +24,7 @@ export class CasaUsuarioComponent {
     
   }
   loadCasas(){
-    const user = this.userService.getUser(); // Obtener usuario logueado
+    const user = this.userService.getUser(); 
     if (user && user.id) {
       this.casaService.getCasasByUserEmail(user.email).subscribe({
         next: (data: any[]) => {
